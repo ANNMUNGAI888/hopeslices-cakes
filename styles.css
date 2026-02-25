@@ -1,0 +1,230 @@
+/* COLOR PALETTE */
+:root {
+    --pink: #ff8bb3;
+    --green: #7ed6a2;
+    --bg: #fff7fa;
+    --text: #333;
+}
+
+/* GLOBAL STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg);
+    font-family: "Poppins", Arial, sans-serif;
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* HERO SECTION */
+.hero {
+    background-image: url('../images/cake1.jpeg'); /* you can change this */
+    height: 65vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 139, 179, 0.4); /* soft pink overlay */
+}
+
+.hero-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+/* BUTTONS */
+.btn {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 12px 22px;
+    background: var(--green);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: 0.2s ease;
+}
+
+.btn:hover {
+    background: #6bc490;
+}
+
+/* SECTION TITLES */
+section h2 {
+    text-align: center;
+    margin: 40px 0 20px;
+    font-size: 2rem;
+    color: var(--pink);
+    font-weight: 700;
+}
+
+/* FEATURED CAKE GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 0 20px 40px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    padding-bottom: 10px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+.card img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+}
+
+.card h3 {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: var(--text);
+}
+
+/* ORDER FORM */
+.order {
+    background: white;
+    padding: 40px 20px;
+    border-top: 3px solid var(--pink);
+}
+
+form {
+    max-width: 600px;
+    margin: auto;
+    display: gri
+
+}
+/* FOOTER STYLING */
+.footer {
+    background: var(--green);
+    color: white;
+    padding: 40px 20px 20px;
+    margin-top: 40px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-section h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.footer-section p {
+    margin: 6px 0;
+    font-size: 1rem;
+}
+
+.social {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.social:hover {
+    color: var(--pink);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+/* PRODUCT DETAILS PAGE */
+.product-details {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.product-card {
+    display: flex;
+    gap: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+}
+
+.product-card img {
+    width: 45%;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.product-info {
+    flex: 1;
+}
+
+.product-info h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: var(--pink);
+}
+
+.product-info .price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--green);
+    margin-bottom: 10px;
+}
+
+.product-info .desc {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+    .product-card {
+        flex-direction: column;
+    }
+
+    .product-card img {
+        width: 100%;
+    }
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cake Details – Hope Slices Cakes</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+<header class="hero" style="height: 35vh; background-image: url('images/cake2.jpeg');">
+    <div class="hero-inner">
+        <h1>Cake Details</h1>
+    </div>
+</header>
+
+<section class="featured" style="padding: 20px;">
+    <div id="product-container" class="product-details">
+        <!-- JS will load the cake info here -->
+    </div>
+</section>
+
+<div style="text-align:center; margin-bottom:30px;">
+    <a class="btn" href="menu.html">Back to Menu</a>
+</div>
+
+<script>
+    // Get ID from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const cakeId = urlParams.get("id");
+
+    // Load product data
+    fetch("api/get_cake.php?id=" + cakeId)
+        .then(res => res.json())
+        .then(c => {
+            const div = document.getElementById("product-container");
+
+            div.innerHTML = `
+                <div class="product-card">
+                    <img src="images/${c.image}" alt="${c.name}">
+                    <div class="product-info">
+                        <h2>${c.name}</h2>
+                        <p class="price">KES ${parseFloat(c.price).toFixed(2)}</p>
+                        <p class="desc">${c.description || "No description available."}</p>
+
+                        <a class="btn" href="index.html#order" onclick="localStorage.setItem('selectedCake', '${c.id}')">
+                            Order This Cake
+                        </a>
+                    </div>
+                </div>
+            `;
+        });
+</script>
+
+</body>
+</html>
